@@ -1,0 +1,25 @@
+<div class="panel panel-primary" *ngIf="!isReloadPost">
+    <div class="panel-heading">
+        <spinner [visible]="isPostLoading" mode="1"></spinner>
+        {{ post.title }}
+    </div>
+    <div class="panel-body">
+        <spinner [visible]="isPostLoading"></spinner>
+        {{ post.body }}
+    </div>
+    <hr>    
+    <spinner [visible]="isCommentsLoading"></spinner>    
+    <div class="media" *ngFor="let comment of post.comments">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" 
+                    src="http://lorempixel.com/80/80/people/?random={{comment.id}}" alt="" />
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{comment.name}}</h4>
+            <p><span class="small text-muted">{{comment.email}}</span></p>
+            {{comment.body}}
+        </div>
+    </div>   
+</div>

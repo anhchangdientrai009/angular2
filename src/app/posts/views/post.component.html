@@ -1,0 +1,37 @@
+<h1>Post</h1>
+<div class="row">
+    <div class="col-md-6">
+        <select class="form-control" (change)="reloadPosts(option.value)" #option>
+            <option value="">Select a user...</option>
+            <option *ngFor="let user of users" value="{{ user.id }}">
+                {{ user.name }}
+            </option>
+        </select>        
+        <nav aria-label="...">
+            <!--<ul class="pagination">
+                <li [class.disabled]="currentPageIndex == 1">
+                    <a (click)="onPagePrev()" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                </li>                
+                <li [class.active]="currentPageIndex == i + 1" *ngFor="let page of totalPageCount; let i = index">
+                    <a (click)="onPageChanged(i + 1)"> {{ i + 1 }}<span class="sr-only"></span></a>
+                </li>                
+                <li [class.disabled]="currentPageIndex == totalPageCount.length">
+                    <a (click)="onPageNext()" aria-label="Next"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+            </ul>-->
+            <pagination [items]="posts" (change)="onPageChanged($event)"></pagination>
+        </nav>
+        <spinner [visible]="isPostLoading"></spinner>
+        <div class="list-group">
+            <a routerLinkActive="active" 
+                routerLink="/posts/{{ post.id }}" 
+                *ngFor="let post of pagedPosts" 
+                class="list-group-item">
+                {{ post.title }}
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <router-outlet #postDetail></router-outlet> 
+    </div>       
+</div>
