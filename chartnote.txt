@@ -1,0 +1,17 @@
+npm install reflect-metadata
+
+Worked on MAC too. Thank you Tony. But i just installed it on the project directory only.
+
+or
+Try adding the following to your src/tsconfig.app.json:
+
+"types": [
+            // add node as an option
+            "node"
+    ]
+
+https://github.com/gevgeny/angular2-highcharts/issues/178
+https://stackoverflow.com/questions/42636948/angular-2-aot-calling-function-chartmodule-function-calls-not-supported
+https://www.highcharts.com/demo/combo
+https://maximelafarie.com/dynamic-charts-in-angular-2-with-highcharts
+https://maximelafarie.com/create-charts-dynamically-with-angular2-and-highcharts
